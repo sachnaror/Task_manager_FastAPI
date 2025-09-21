@@ -15,4 +15,4 @@ class TaskRead(TaskBase):
     id: int
     completed: bool
     class Config:
-        orm_mode = True
+     from_attributes = True

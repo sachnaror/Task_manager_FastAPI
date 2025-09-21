@@ -19,8 +19,8 @@ async def list_tasks(db: AsyncSession = Depends(get_db)):
 @router.post("/", response_model=TaskRead)
 async def create_task(
     task: TaskCreate,
-    db: AsyncSession = Depends(get_db),
-    background_tasks: BackgroundTasks = Depends()
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db)
 ):
     """Create a new task + send background email"""
     db_task = Task(**task.dict())
