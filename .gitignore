@@ -1,3 +1,56 @@
 .env
 .venv
 venv
+.git
+__pycache__/
+*.pyc
+instance/
+*.sqlite3
+.DS_Store
+.idea/
+.vscode/
+migrations/
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# Environment variables
+.env
+
+# Database files (if you use SQLite locally for quick tests)
+*.sqlite3
+
+# Alembic migration cache
+alembic/versions/*.pyc
+
+# OS junk
+.DS_Store
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Test/coverage artifacts
+htmlcov/
+.coverage
+.pytest_cache/
+.cache/
+
+# Logs
+*.log
+
+# Build / dist
+build/
+dist/
+*.egg-info/
