@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.middlewares import LoggingMiddleware
 from app.routers import tasks_router, users_router, auth_router, websocket_router
+from sqlalchemy.ext.asyncio import AsyncSession
+from app.db import engine
 
 app = FastAPI(title="Task Manager API", version="1.0")
 
@@ -26,3 +28,16 @@ app.include_router(tasks_router)
 app.include_router(users_router)
 app.include_router(auth_router)
 app.include_router(websocket_router)
+
+
+
+
+
+
+@app.on_event("startup")
+async def startup_event():
+    try:
+        async with engine.begin() as conn:
+            await conn.run_sync(lambda conn: print("✅ Connected to Postgres:", conn.engine.url))
+    except Exception as e:
+        print("❌ Failed to connect to Postgres:", e)

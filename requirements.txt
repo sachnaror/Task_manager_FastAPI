@@ -7,4 +7,5 @@ alembic
 pydantic-settings
 passlib[bcrypt]
 python-dotenv
-pip install python-jose[cryptography]
+python-jose[cryptography]
+greenlet
